@@ -27,7 +27,7 @@ program.version(require('./package.json').version)
     .option("-f --file <path>", "Path to siege file to scp to the siege machines.")
     .option("-o --output <path>", "Path to an output file for the pdsh/")
     .option("-u --username <username>","Username to use to SSH into. Defaults to 'knight'")
-    .option("-n --node-ssh", "If we should use a nodeJS specific SSH Client instead of PDSH (useful if pdsh doesn't exist on the server) defaults to false")
+    .option("-n --node-ssh", "If we should use a nodeJS specific SSH Client instead of PDSH (useful if pdsh isn't installed) defaults to false, will be used if pdsh isn't detected")
     .option("--create-config", "Have knight create the config.yml file, specify with -c otherwise uses default location", (val) => true, false)
     .option("-v --verbose", "Verbose flag, can be used multiple times.", (v,total) => total + 1, 0)
     .parse(process.argv);
@@ -44,13 +44,13 @@ let defaults = {
 }
 
 if (program.createConfig) {
-      fs.writeFile(program.config, yaml.dump(opts),(err) => {
-        if (err) {
-          console.error("Unable to create config file at", program.config, err.message || err);
-        } else {
-          console.log("Created Config at",program.config);
-        }
-      });
+  try {
+    fs.writeFileSync(program.config, yaml.dump(opts));
+    if (program.verbose > 0) console.log("Created Config at",program.config,"quiting...");
+    process.exit(0);
+  } catch (e) {
+    console.error("Unable to create config file at", program.config, e.message || e);
+  }
 } else {
   try {
       let config = yaml.load(fs.readFileSync(program.config))
@@ -68,9 +68,9 @@ opts = Object.assign(defaults,opts);
 opts.verbose = program.verbose;
 opts.nodeSSH = program.nodeSsh;
 opts.outputFile = program.output;
-if (program.verbose > 0) console.dir(opts);
+if (program.verbose > 2) console.dir(opts);
 
-let cloud = program.gcp ? gcp : aws;
+let cloud = opts.gcp ? gcp : aws;
 
 
 async.waterfall([
@@ -79,6 +79,5 @@ async.waterfall([
   async.apply(cloud.deleteVMs,opts)
 ], err => {
   if (err) console.error(err);
-  console.log("GOODBYE");
   process.exit(err ? 1 : 0);
 });
