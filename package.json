@@ -20,9 +20,11 @@
   "license": "UNLICENSED",
   "homepage": "https://bitbucket.org/vgtf/knight#readme",
   "dependencies": {
+    "@google-cloud/compute": "^0.7.2",
     "async": "^2.4.1",
     "aws-sdk": "^2.62.0",
     "commander": "^2.9.0",
-    "js-yaml": "^3.8.4"
+    "js-yaml": "^3.8.4",
+    "ssh2": "^0.5.5"
   }
 }
