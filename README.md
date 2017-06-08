@@ -24,7 +24,7 @@ Knight is a Siege machine manager, that also wraps around pdsh.
     -m --min <number>                        Min number of machine to spin up
     -M --max <number>                        Max number of machines to spin up, use this option if you are okay with getting fewer machines.
     -f --file <path>                         Path to siege file to scp to the siege machines.
-    -o --output <path>                       Path to an output file for the pdsh/
+    -o --output <path>                       Path to an output file for the pdsh/nodeShell to send logs to.
     -u --username <username>                 Username to use to SSH into. Defaults to 'knight'
     -n --node-ssh                            If we should use a nodeJS specific SSH Client instead of PDSH (useful if pdsh isn't installed) defaults to false, will be used if pdsh isn't detected
     --create-config                          Have knight create the config.yml file, specify with -c otherwise uses default location
