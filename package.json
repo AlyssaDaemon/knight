@@ -1,7 +1,7 @@
 {
   "name": "knight",
   "version": "0.0.2",
-  "description": "AWS Siege Machine manager and wrapper for pdsh",
+  "description": "AWS/GCP Siege Machine manager and wrapper for pdsh",
   "main": "knight.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
