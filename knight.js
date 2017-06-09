@@ -43,6 +43,7 @@ let defaults = {
   username: "knight"
 }
 
+
 if (program.createConfig) {
   try {
     fs.writeFileSync(program.config, yaml.dump(opts));
@@ -62,6 +63,12 @@ if (program.createConfig) {
         console.warn("File doesn't exist, using default values and arguments");
       }
     }
+}
+
+if (program.gcp || opts.gcp) {
+  defaults.type = "n1-standard-1";
+  defaults.region = "us-central1-a";
+  defaults.image = "ubuntu";
 }
 
 opts = Object.assign(defaults,opts);
