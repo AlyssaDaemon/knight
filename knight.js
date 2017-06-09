@@ -78,7 +78,7 @@ if (program.gcp || opts.gcp) {
 
 opts = Object.assign(defaults,opts);
 opts.verbose = program.verbose;
-opts.nodeSSH = program.nodeSsh;
+opts.nodeSSH = true; //program.nodeSsh; Temp force of using the nodeSSH Shell until I can fix the PDSH SIGINT issue
 opts.outputFile = program.output;
 if (program.verbose > 2) console.dir(opts);
 
