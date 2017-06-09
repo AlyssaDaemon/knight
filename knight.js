@@ -36,7 +36,7 @@ let opts = ["type","image","tag","key","secret","region","min","max","file", "id
 let defaults = {
   type: "t2.micro",
   image: "ami-c58c1dd3",
-  tag: "NGTV_Siege_Machines",
+  tag: "ngtv",
   prefix: "siege-machine",
   region: "us-east-1",
   min: 1,
@@ -46,6 +46,11 @@ let defaults = {
 
 if (program.createConfig) {
   try {
+    try {
+      fs.mkdirSync(path.dirname(program.config))
+    } catch (e) {
+      if (e.code !== 'EEXIST') console.error(e);
+    }
     fs.writeFileSync(program.config, yaml.dump(opts));
     if (program.verbose > 0) console.log("Created Config at",program.config,"quiting...");
     process.exit(0);
@@ -78,10 +83,18 @@ opts.outputFile = program.output;
 if (program.verbose > 2) console.dir(opts);
 
 let cloud = opts.gcp ? gcp : aws;
+let machines = new Map();
 
+process.on('uncaughtException', err => {
+  console.error(err);
+  cloud.deleteVMs(opts,machines,() => {
+    process.exit(1);
+  })
+})
 
 async.waterfall([
   async.apply(cloud.generateVMs, opts),
+  (m,cb) => { machines = m; cb(null, m)},
   async.apply(ssh.init,opts),
   async.apply(cloud.deleteVMs,opts)
 ], err => {
