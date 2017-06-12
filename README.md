@@ -1,5 +1,5 @@
 # Knight
-Knight is a Siege machine manager, it will spin up VMs 
+Knight is a Siege machine manager, it will spin up VMs, SSH into them, and finally delete them after the user exits from the program. 
 
 
 ## Installing
@@ -9,7 +9,7 @@ npm i -g "git+ssh://git@bitbucket.org/vgtf/knight.git"
 
 ## Using
 
-```
+```text
 $ knight -h
 
   Usage: knight [options]
