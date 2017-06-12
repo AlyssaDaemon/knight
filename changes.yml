@@ -1,0 +1,2 @@
+0.1.0:
+  - Minimally viable now, uses GCP and nodeSSH shell by default
