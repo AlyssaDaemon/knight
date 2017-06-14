@@ -81,7 +81,10 @@ opts = Object.assign(defaults,opts);
 opts.verbose = program.verbose;
 opts.nodeSSH = true; //program.nodeSsh; Temp force of using the nodeSSH Shell until I can fix the PDSH SIGINT issue
 opts.outputFile = program.output;
-if (program.verbose > 2) console.dir(opts);
+if (program.verbose > 2) {
+  console.log("Options are:");
+  console.dir(opts);
+}
 
 let cloud = opts.gcp ? gcp : aws;
 let machines = new Map();
