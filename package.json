@@ -1,6 +1,6 @@
 {
   "name": "knight",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AWS/GCP Siege Machine manager and wrapper for pdsh",
   "main": "knight.js",
   "scripts": {
