@@ -27,13 +27,14 @@ program.version(require('./package.json').version)
     .option("-f --file <path>", "Path to siege file to scp to the siege machines.")
     .option("-o --output <path>", "Path to an output file for the pdsh/nodeShell to send logs to.")
     .option("-u --username <username>","Username to use to SSH into. Defaults to 'knight'")
+    .option("--preemptible [true|false]", "If knight should use preemptible", (v) => v.toLowerCase() === "true")
     //.option("-n --node-ssh", "If we should use a nodeJS specific SSH Client instead of PDSH (useful if pdsh isn't installed) defaults to false, will be used if pdsh isn't detected")
     .option("-w --wait-time <milliseconds>", "Time in milliseconds that knight will wait for the new VMs to boot up.")
     .option("--create-config", "Have knight create the config.yml file, specify with -c otherwise uses default location, exits on completion", (val) => true, false)
     .option("-v --verbose", "Verbose flag, can be used multiple times.", (v,total) => total + 1, 0)
     .parse(process.argv);
 
-let opts = ["type","image","tag","key","secret","region","min","max","file", "identity", "projectId", "keyfile","prefix", "gcp", "username", "waitTime"].filter(k => program[k] !== undefined ).reduce((o,v) => { o[v] = program[v]; return o; }, {});
+let opts = ["type","image","tag","key","secret","region","min","max","file", "identity", "projectId", "keyfile","prefix", "gcp", "preemptible", "username", "waitTime"].filter(k => program[k] !== undefined ).reduce((o,v) => { o[v] = program[v]; return o; }, {});
 let defaults = {
   type: "t2.micro",
   image: "ami-c58c1dd3",
@@ -41,7 +42,8 @@ let defaults = {
   prefix: "siege-machine",
   region: "us-east-1",
   min: 1,
-  username: "knight"
+  username: "knight",
+  preemptible: true
 }
 
 
