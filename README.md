@@ -1,4 +1,4 @@
-![Knight](https://raw.githubusercontent.com/AlyssaDaemon/knight/master/res/KnightHorseback3.svg)
+![Knight](https://raw.githubusercontent.com/AlyssaDaemon/knight/master/res/KnightHorseback3.svg?sanitize=true)
 # Knight
 Knight is a Siege machine manager, it will spin up VMs, SSH into them, and finally delete them after the user exits from the program. 
 
