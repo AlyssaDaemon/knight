@@ -103,3 +103,6 @@ Knight requires that you already have some account on GCP (AWS is on the roadmap
 * Implement EventEmitter model or move to golang
 * Implement commands (such as `.create` or `.delete` to spin up or delete VMs on the fly)
 * Implement SSH key tagging so that the SSH key can be truly™ dynamic.
+
+
+Knight SVG taken from: https://publicdomainvectors.org/en/free-clipart/Knight-attacks/37184.html
