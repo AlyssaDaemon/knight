@@ -37,6 +37,7 @@ $ knight -h
     -f --file <path>                         Path to siege file to scp to the siege machines.
     -o --output <path>                       Path to an output file for the pdsh/nodeShell to send logs to.
     -u --username <username>                 Username to use to SSH into. Defaults to 'knight'
+    --preemptible [true|false]               If knight should use preemptible
     -w --wait-time <milliseconds>            Time in milliseconds that knight will wait for the new VMs to boot up.
     --create-config                          Have knight create the config.yml file, specify with -c otherwise uses default location, exits on completion
     -v --verbose                             Verbose flag, can be used multiple times.
@@ -44,6 +45,7 @@ $ knight -h
 
 # "Roadmap"
 
-* Getting PDSH to work with knight
 * Integrate AWS with Knight
-* Add support for sleeping machines to turn on at a later date in addition to the current create/delete model
+* Fix the streaming output issue
+* Implement EventEmitter model or move to golang
+* Implement commands (such as `.create` or `.delete` to spin up or delete VMs on the fly)
