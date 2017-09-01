@@ -6,7 +6,7 @@ Knight is a Siege machine manager, it will spin up VMs, SSH into them, and final
 
 ## Installing
 ```bash
-npm i -g "git+ssh://git@bitbucket.org/vgtf/knight.git"
+npm i -g "git@github.com:AlyssaDaemon/knight.git"
 ```
 
 ## Using
