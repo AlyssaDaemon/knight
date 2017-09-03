@@ -1,7 +1,7 @@
 {
   "name": "knight",
   "version": "0.1.4",
-  "description": "AWS/GCP Siege Machine manager and wrapper for pdsh",
+  "description": "AWS/GCP Siege Machine manager",
   "main": "knight.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/vgtf/knight.git"
+    "url": "git+ssh://git@github.com/AlyssaDaemon/knight.git"
   },
   "author": {
-    "name": "John Hutchison",
-    "email": "John.Hutchison@Turner.com"
+    "name": "Alyssa Herzog",
+    "email": "Alyssa.Herzog@Turner.com"
   },
-  "license": "UNLICENSED",
-  "homepage": "https://bitbucket.org/vgtf/knight#readme",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/AlyssaDaemon/knight",
   "dependencies": {
     "@google-cloud/compute": "^0.7.2",
     "async": "^2.4.1",
