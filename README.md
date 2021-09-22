@@ -1,5 +1,5 @@
 ![Knight](https://raw.githubusercontent.com/AlyssaDaemon/knight/master/res/KnightHorseback3.svg?sanitize=true)
-# Knight
+# Knight (UNMAINTAINED DO NOT USE! If you would like to take this over please reach out to me on the email address in package.json or fork)
 Knight is a Siege machine manager, it will spin up VMs, SSH into them, and finally delete them after the user exits from the program. Currently only supports Node 6 LTS.
 
 
