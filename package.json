@@ -1,7 +1,7 @@
 {
   "name": "knight",
   "version": "0.1.4",
-  "description": "AWS/GCP Siege Machine manager",
+  "description": "UNMAINTAINED PLEASE DO NOT USE! AWS/GCP Siege Machine manager",
   "main": "knight.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
   },
   "author": {
     "name": "Alyssa Herzog",
-    "email": "Alyssa.Herzog@Turner.com"
+    "email": "Alyssa.Herzog@WarnerMedia.com"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/AlyssaDaemon/knight",
@@ -25,6 +25,6 @@
     "aws-sdk": "^2.62.0",
     "commander": "^2.9.0",
     "js-yaml": "^3.8.4",
-    "ssh2": "^0.5.5"
+    "ssh2": ">=1.4.0"
   }
 }
